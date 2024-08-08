@@ -1,0 +1,16 @@
+steps:
+    - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+      args:
+          - gcloud
+          - functions
+          - deploy
+          - Socials-MarketPlace-Audience-Upload
+          - --gen2  
+          - --region=europe-west2
+          - --source=.
+          - --trigger-http
+          - --runtime=python39
+          - --allow-unauthenticated
+          - --entry-point=daily_upload
+options:
+    logging: CLOUD_LOGGING_ONLY
